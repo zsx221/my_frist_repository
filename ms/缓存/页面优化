@@ -9,7 +9,12 @@ if(!StringUtils.isEmpty(html)){//判断缓存里面的是否为空，不为空�
 }
 //缓存里面的为空，就自己手动渲染模板
 2、手动渲染模板
- ThymeleafViewResolver 
+ ThymeleafViewResolver thymeleafViewResolver;
+ IWebContext ctx = new WebContext(request, response,
+                request.getServletContext(), request.getLocale(), model.asMap());
+        html = thymeleafViewResolver.getTemplateEngine().process("goods_list", ctx);
 3、结果输出
+return html;
 
-requestMapping中有一个属性为produces，作用为标识返回类型
+
+1、requestMapping中有一个属性为produces，作用为标识返回类型
