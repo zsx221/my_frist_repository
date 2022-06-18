@@ -1,0 +1,15 @@
+#做秒杀项目的时候，通常有三种缓存技术可以提高系统的性能，1、页面缓存、URL缓存、对象缓存  2、页面静态化、前后端分离 3、静态资源优化  4、CDN优化
+#今天记录的就是页面缓存的优化时候遇到的问题，以及一些关键点
+使用页面缓存：我们把页面信息添加到缓存里面，在缓存里面去找，如何存在，就直接返回
+步骤：
+1、取缓存
+String html =redisService.get(GoodsKey.getGoodsList,"",String.class);
+if(!StringUtils.isEmpty(html)){//判断缓存里面的是否为空，不为空就把取到的返回就行
+  return html;
+}
+//缓存里面的为空，就自己手动渲染模板
+2、手动渲染模板
+ ThymeleafViewResolver 
+3、结果输出
+
+requestMapping中有一个属性为produces，作用为标识返回类型
