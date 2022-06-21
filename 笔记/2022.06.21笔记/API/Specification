@@ -1,0 +1,15 @@
+spring Data Jpa 支持非常丰富的查询方式，本文主要介绍specification查询
+Specification它是一个接口，有一个实现类叫Specifications。这个接口主要定义了一些逻辑方法
+比如：not、where、and、or等default或者static的逻辑方法
+root、query、criteriaBuild三个参数的类型都是在javax.persistence.criteria包下
+root
+root接口：主要用于处理实体和字段、实体与实体之间的关系。除了上述例子中的取字段的操作以外，还可以做join操作
+
+query
+CriteriaQuery接口：主要用于对查询结果的处理，包括groupby、orderBy、having、distinct等操作。
+
+criteriaBuilder
+CriteriaBuilder接口，主要用于各种条件查询、模拟sql函数等。
+
+结论：spectification查询主要用于复杂查询，通过三个参数的组合，可以实现基本上绝大部分sql能实现的复杂查询，
+且基于java代码，具有恨好的可读性
