@@ -1,0 +1,11 @@
+StringUtils.isBlank用来判断某字符串是否为空或长度为0或由空白符(whitespace)构成
+下面是示例：
+StringUtils.isBlank(null) = true
+StringUtils.isBlank("") = true
+StringUtils.isBlank(" ") = true
+StringUtils.isBlank(" ") = true
+StringUtils.isBlank("\t \n \f \r") = true //对于制表符、换行符、换页符和回车符StringUtils.isBlank()均识为空白符
+StringUtils.isBlank("\b") = false //"\b"为单词边界符
+StringUtils.isBlank("bob") = false
+StringUtils.isBlank(" bob ") = falsee
+总而言之：字符串是空的，或者长度为0，返回true
