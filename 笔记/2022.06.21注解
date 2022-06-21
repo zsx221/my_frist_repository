@@ -1,0 +1,23 @@
+1、@ApiOperation 
+@ApiOperation 不是spring自带的注解，是swagger里面的
+
+@ApiOperation 和@ApiParam为添加的API相关注解，每个参数说明如下:
+value：接口说明，httpMethon："接口请求方式"，response="接口返回参数类型"，notes：接口发布说明，暂时就记录这些注解，需要的话再看源码吧
+
+2、@ApiParam
+required:是否必须参数，name:参数名称，value:参数具体的描述
+
+
+3、@GetMapping 是spring 4.3提供的新注解，它是一个组合注解，等价于
+@RequestMapping(method = RequestMethod.Get)
+这里解释一下methon属性：用来色湖之请求方式，只有客户端发送请求的方式和method的值一致，才能处理请求
+
+4、@Column注解
+用来标识实体类中属性与数据表字段的对应关系
+里面大概有几个属性记一下
+name:定义了被标注字段在数据库表中所对应字段的名称
+unique：标识是否是唯一标识，默认是false
+nullable：标识该字段是否可以为null值，默认是true
+insertable：标识在使用"INSERT"脚本插入数据时，是否需要插入该字段的值。
+columnDefinition：标识创建表时，该字段创建的SQL语句，一般用于通过Entity生成表定义时使用
+，可包含数据类型等
