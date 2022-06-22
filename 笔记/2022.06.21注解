@@ -21,3 +21,9 @@ nullable：标识该字段是否可以为null值，默认是true
 insertable：标识在使用"INSERT"脚本插入数据时，是否需要插入该字段的值。
 columnDefinition：标识创建表时，该字段创建的SQL语句，一般用于通过Entity生成表定义时使用
 ，可包含数据类型等
+5、@Bean
+Spring的@Bean注解用于告诉方法，产生一个Bean对象，然后这个Bean对象交给Spring管理。产生这个Bean对象的方法Spring只会调用一次
+随后这个Spring将会将这个Bean对象放在自己的IOC容器中。
+
+SpringIOC 容器管理一个或者多个bean，这些bean都需要在@Configuration注解下进行创建
+在一个方法上使用@Bean注解就表明这个方法需要交给Spring进行管理。
