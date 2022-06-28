@@ -1,0 +1,8 @@
+JPA
+为java Persistence API也就是java持久层的api
+基于ORM思想实现的框架都称为JPA框架
+jpa是一个基于O/R映射（即对象跟关系）的标准规范，只定义标准规则（如接口或者注解），不提供实现
+jpa的主要实现有Hibernate、OpenJPA等
+
+Spring Data JPA
+对于JPA规范的再次封装，底层实现了Hibernate的技术，属于Spring生态的一部分
