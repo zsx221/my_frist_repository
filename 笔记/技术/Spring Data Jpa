@@ -1,0 +1,14 @@
+SpringDataJpa第二天
+orm思想，hibernate, JPA的相关操作
+* SpringDataJpa
+第一springDataJpa的概述
+I
+第二springDataJpa的入门门操作
+案例:客户的基本CRUD
+i.搭建环境
+创建工程导入坐标
+配置spring的配置文件
+编写实体类(Customer) ，使用jpa注解配置映射关系
+ii .编写-一个符合springDataJpa的dao层接口|
+第三springDataJpa 的运行过程和原理剖析
+第四复杂查询
