@@ -5,10 +5,23 @@ orm思想，hibernate, JPA的相关操作
 I
 第二springDataJpa的入门门操作
 案例:客户的基本CRUD
-i.搭建环境
-创建工程导入坐标
-配置spring的配置文件
-编写实体类(Customer) ，使用jpa注解配置映射关系
-ii .编写-一个符合springDataJpa的dao层接口|
+  i.搭建环境
+    创建工程导入坐标
+    配置spring的配置文件
+    编写实体类(Customer) ，使用jpa注解配置映射关系
+  ii .编写-一个符合springDataJpa的dao层接口
+                符合SpringDataJpa的dao层接口规范
+                1.需要继承两个接口(JpaRepository, JpaSpecificationExecutor)
+                2.需要提供响应的泛型
+     JpaRepository<操作的实体类类型，实体类中主键属性的类型>
+      * 封装了基本的CRUD操作
+     JpaSpecificationExecutor<操作的实体类类型>
+      * 封装了复杂操作
+    
 第三springDataJpa 的运行过程和原理剖析
+   (例子：findone)(问题：jdk动态代理不是很理解)
+    1、使用接口继承JpaRepository,和JpaSpecificationExecutor
+    2、在使用接口的一些API的时候，会自动使用JDK的动态代理，从而实现InvocationHandler了，JdkDynamicAopProxy的invoke创建一个代理对象
+    3、从而获取一个JpaRepository的实现类SimpleJpaRepository，再使用其中的findone的方法
+    
 第四复杂查询
