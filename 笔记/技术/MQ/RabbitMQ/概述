@@ -1,0 +1,26 @@
+1.6 RabbitMQ简介
+AMQP,即Advanced Message Queuing Protocol (高级消息队列协议)，是一个网络协议，是应用层协议
+的一个开放标准，为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息，并不受客户端/中
+间件不同产品，不同的开发语言等条件的限制。2006年, AMQP规范发布。类比HTTP。
+RabbitMQ中的相关概念:
+Broker:接收和分发消息的应用，RabbitMQ Server就是Message Broker
+●Virtual host: 出于多租户和安全因素设计的，把AMQP的基本组件划分到一个虚拟的分组中，类似于网
+络中的namespace概念。当多个不同的用户使用同一个RabbitMQ server提供的服务时，可以划分出多
+个vhost, 每个用户在自己的vhost创建exchange / queue等
+●Connection: publisher / consumer和broker之间的TCP连接
+Channel:如果每一次访问RabbitMQ都建立一个 Connection,在消息量大的时候建立TCP Connection
+的开销将是巨大的，效率也较低。Channel 是在connection内部建立的逻辑连接,如果应用程序支持多线
+程，通常每个thread创建单独的channel进行通讯，AMQP method包含了channel id帮助客户端和
+message broker识别channel,所以channel之间是完全隔离的。Channel 作为轻量级的Connection
+极大减少了操作系统建立TCP connection的开销
+●Exchange: message到达broker的第一 站，根据分发规则，匹配查询表中的routing key, 分发消息到
+Queue 中去。常用的类型有: direct (point-to point), topic (publish- subscribe) and fanout (multicast)
+●Queue:消息最终被送到这里等待consumer取走
+●Binding: exchange 和queue之间的虚拟连接，binding 中可以包含routing key。Binding 信息被保存
+到exchange中的查询表中，用于message的分发依据
+
+总结：
+1. RabbitMQ 是基于AMQP协议使用Erlang语言开发的一款消息队列产品。
+2. RabbitMQ提供 了6种工作模式，我们学习5种。这是今天的重点。
+3. AMQP 是协议，类比HTTP.
+4. JMS 是API规范接口,类比JDBC.
