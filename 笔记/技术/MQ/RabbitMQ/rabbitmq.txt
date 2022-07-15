@@ -1,0 +1,20 @@
+使用Docker安装部署RabbitMQ
+docker search rabbitmq:management
+docker pull rabbitmq:management
+docker images
+
+注意:如果docker pu11 rabbitmq 后面不带management,启动rabbi tmq后是无法打开管理界面的，所以我们要下
+载带management插件的rabbitmq
+
+1.创建rabbitmq容器
+rabbitmq需要有映射以下端口: 5671,5672,4369,15671,15672,25672
+15672 (if management p1ugin is enab1ed)
+15671 management 监听端口，前台浏览器的控制界面
+5672，5671 (AMQP 0-9-1 without and with TLS)
+4369 (epmd) epmd 代表Erlang 端口映射守护进程
+25672 (Erlang distribution)
+
+docker run -di --name=tensquare_ rabbitmq -p 5672:5672 -p 5671:5671 -p 4369:4369 -p 15671:15671 -p 15672:15672 -p 25672:25672 rabbitmq:management
+
+账号密码
+guest   guest
