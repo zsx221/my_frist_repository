@@ -1,4 +1,4 @@
-rabbitmq的四种工作模式总结
+rabbitmq的五种种工作模式总结
             //1、建立连接
             //2、设置参数
             //3、获取连接connection
