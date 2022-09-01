@@ -11,3 +11,6 @@ p:
 RCountDownLatch latch = redisson.getCountDownLatch("anyCountDownLatch");
 latch.trySetCount(1);
 latch.await();
+Redisson的作用：
+  1、简化了redis的缓存操作。
+  2、提供了各种可重入锁。
