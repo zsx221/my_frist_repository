@@ -1,3 +1,4 @@
+READONLY_You can‘t write against a read only replica.
 出现以上错误，表示当前redis服务是只读的，没有写权限，估计该服务是被当作从数据库使用了。
   解决方案：
       打开redis服务对应的配置文件，把其中的属性slave-read-only的值修改为no，这样就可写了。
